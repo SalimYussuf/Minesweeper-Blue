@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper - Achievements</title>
+    <link rel="stylesheet" href="achievements.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏆 Achievements</h1>
+        </header>
+        <div class="achievements-grid">
+            <div class="achievement-card" id="easy-card">
+                <div class="achievement-icon">🌟</div>
+                <h3 class="achievement-title">Easy Mode Master</h3>
+                <p>Complete a game on easy mode</p>
+                <div class="achievement-progress">
+                </div>
+            </div>
+
+            <div class="achievement-card" id="medium-card">
+                <div class="achievement-icon">💫</div>
+                <h3 class="achievement-title">Medium Mode Champion</h3>
+                <p>Complete a game on medium mode</p>
+                <div class="achievement-progress">
+                </div>
+            </div>
+
+            <div class="achievement-card" id="hard-card">
+                <div class="achievement-icon">👑</div>
+                <h3 class="achievement-title">Hard Mode Legend</h3>
+                <p>Complete a game on hard mode</p>
+                <div class="achievement-progress">
+                </div>
+            </div>
+
+            <div class="achievement-card" id="no-flag-card">
+                <div class="achievement-icon">🚩</div>
+                <h3 class="achievement-title">No Flag Challenge</h3>
+                <p>Win without placing any flags</p>
+                <div class="achievement-progress">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar">
+        <a href="home.html">Home</a>
+        <a href="login.html">Login/Signup</a>
+        <a href="leaderboard.html">Leaderboards</a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const achievements = JSON.parse(localStorage.getItem('achievements')) || {
+                easy: false,
+                medium: false,
+                hard: false,
+                noFlag: false
+            };
+
+            // Update achievement cards based on completion
+            if (achievements.easy) {
+                document.getElementById('easy-card').classList.add('completed');
+            }
+            if (achievements.medium) {
+                document.getElementById('medium-card').classList.add('completed');
+            }
+            if (achievements.hard) {
+                document.getElementById('hard-card').classList.add('completed');
+            }
+            if (achievements.noFlag) {
+                document.getElementById('no-flag-card').classList.add('completed');
+            }
+        });
+    </script>
+</body>
+</html> 

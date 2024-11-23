@@ -1,0 +1,68 @@
+/* minesweeper.css */
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --text-color: #ecf0f1;
+    --button-hover: #3498db;
+    --gradient-start: #2c3e50;
+    --gradient-end: #3498db;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+header {
+    margin-top: -5em;
+    font-size: 3.5em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    box-shadow: #2c3e50;
+}
+
+.emoji{
+    font-size: 3.5em;
+    transform: translate(-3px,-30px);
+
+}
+
+.buttons {
+    display: inline;
+    padding: 15px 30px;
+    margin: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buttons:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: var(--text-color);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a href="home.html" class="buttons"> Home</a> <!-- Link to home page -->
+            <a href="achievements.html" class="buttons"> Achievements</a> <!-- Link to achievements page -->
+            <a href="leaderboard.html" class="buttons"> Leaderboards</a> <!-- Link to leaderboard page -->
+            <a href="list_users.php" class="buttons">User Report</a>
+        </div>
+    
+        <div class="main-content">
+            <div class="login-container">
+                <form id="login-form" class="login-form" action="login.php" method="POST">
+                    <h2>Login to Your Account</h2>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <div class="signup-link">
+                        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

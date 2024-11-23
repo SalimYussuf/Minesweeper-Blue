@@ -1,0 +1,194 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --text-color: #ecf0f1;
+    --button-hover: #3498db;
+    --gradient-start: #2c3e50;
+    --gradient-end: #3498db;
+}
+.hero-ui{
+    min-width: 200vh;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#board {
+    width: fit-content;
+    margin: 20px auto;
+    display: grid;
+    background: linear-gradient(to bottom right, #87cefa, #4169e1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    margin-top: 20px; /* Restored original margin */
+
+}
+
+#board div {
+    width: 30px; /* Tile size */
+    height: 30px; /* Tile size */
+    border: 1px solid black;
+    border-radius: 1px; /* Rounded corners for tiles */
+    font-size: 24px; /* Increased font size for better visibility */
+    display: flex;
+    justify-content: center;
+    cursor:crosshair;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+#board div:hover {
+    background-color: #d3d3d3; /* Light gray on hover */
+    transform: scale(1.03); /* Slightly enlarge on hover */
+}
+
+.tile-clicked {
+    background-color: #d3d3d3 !important; /* White for clicked tiles */
+    border: 1px solid black; /* Ensure the border remains black */
+    cursor: default;
+    animation: tileClickAnimation 0.2s ease forwards; /* Animation for clicked tiles */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Gives depth to clicked tiles */
+}
+
+.mine {
+    background-color: red !important; /* Red for mine tiles */
+    color: white; /* White text for mines */
+    font-size: 24px; /* Increased font size for mines */
+}
+
+
+
+/* Color scheme for numbers */
+.x1 { color: blue; }    /* 1 */
+.x2 { color: green; }   /* 2 */
+.x3 { color: red; }     /* 3 */
+.x4 { color: navy; }    /* 4 */
+.x5 { color: darkred; } /* 5 */
+.x6 { color: teal; }    /* 6 */
+.x7 { color: black; }   /* 7 */
+.x8 { color: gray; }    /* 8 */
+
+#timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#difficulty {
+    margin: 20px 0;
+}
+
+.difficulty-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.difficulty-btn:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: var(--text-color);
+}
+
+
+.buttons {
+    display: inline;
+    padding: 10px 20px;
+    margin-top: 5px;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Button styling */
+.buttons:active {
+    background-color: #222;
+    transform: scale(0.98); /* Adds a press effect */
+}
+
+
+/* Styling for sidebar */
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 5px 10px;
+}
+
+.sidebar a:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: var(--text-color);
+}
+
+
+/* Main content area to shift it right due to sidebar */
+.main-content {
+    margin-left: 220px; /* Offset by the sidebar width */
+    padding: 20px;
+}
+
+/* Other styles for your game board and elements */
+#board {
+    /* display: none; */
+    margin-top: 20px;
+}
+
+
+/* Animation for tile click */
+@keyframes tileClickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

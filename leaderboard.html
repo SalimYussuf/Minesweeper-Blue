@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a href="minesweeper.html"><</a> <!-- Link to minesweeper page -->
+        </div>
+        <div class="main-content">
+            <div class="leaderboard-table">
+                <h2>Leaderboard</h2> <!-- Title for the leaderboard -->
+                <div class="summary">
+                    <p><strong>Top Player:</strong> <span id="top-player">N/A</span></p>
+                    <p><strong>Best Time:</strong> <span id="best-time">N/A</span> seconds</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th> <!-- Column for ranking -->
+                            <th>Username</th> <!-- Column for usernames -->
+                            <th>Difficulty</th> <!-- Column for difficulty -->
+                            <th>Time Taken (s)</th> <!-- Column for time taken -->
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <!-- Add your table rows here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      function loadLeaderboard() {
+    const leaderboardBody = document.getElementById("leaderboard-body");
+    const topPlayerElement = document.getElementById("top-player");
+    const bestTimeElement = document.getElementById("best-time");
+
+    fetch('get_leaderboard.php')
+        .then(response => response.json())
+        .then(leaderboard => {
+            // Debug log the received data
+            console.log('Received leaderboard data:', leaderboard);
+            
+            leaderboardBody.innerHTML = '';
+
+            if (leaderboard.length > 0) {
+                topPlayerElement.textContent = leaderboard[0].username;
+                bestTimeElement.textContent = leaderboard[0].timeTaken;
+            }
+
+            leaderboard.forEach((data, index) => {
+                // Debug log each row
+                console.log('Processing row:', data);
+                
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${data.username}</td>
+                    <td>${data.difficulty_name || 'Unknown'}</td>
+                    <td>${data.timeTaken}</td> `;
+                leaderboardBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading leaderboard:', error);
+            leaderboardBody.innerHTML = '<tr><td colspan="5">Error loading leaderboard</td></tr>';
+        });
+}
+
+// Add this to help debug
+document.addEventListener('DOMContentLoaded', () => {
+    loadLeaderboard();
+    console.log('Leaderboard loading initiated');
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --text-color: #ecf0f1;
+    --button-hover: #3498db;
+    --gradient-start: #2c3e50;
+    --gradient-end: #3498db;
+}
+.leaderboard-table {
+    font-family: Arial, sans-serif; /* Unified font */
+    background-color: #f1f1f1; /* Light gray background */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    margin: 30px auto;
+}
+
+.leaderboard-table h2 {
+    margin-bottom: 25px;
+    color: #333; /* Dark gray for headings */
+    text-align: center; /* Centered text */
+    font-size: 28px;
+    font-weight: 600;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center; /* Centered text for table cells */
+}
+
+th {
+    background-color: #444; /* Dark gray for header */
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+tr {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Styling for sidebar */
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 5px 10px;
+}
+
+.sidebar a:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: var(--text-color);
+}
+
+
+/* Main content area to shift it right due to sidebar */
+.main-content {
+    margin-left: 220px; /* Offset by the sidebar width */
+    padding: 20px;
+}
+
