@@ -118,19 +118,24 @@ function isValidCell(row, col) {
 
 // This will show the board on the page
 function renderBoard() {
+    // Create fresh board element
     const boardElement = document.getElementById('board');
-    boardElement.innerHTML = '';
-    boardElement.style.gridTemplateColumns = `repeat(${cols}, ${TILE_SIZE}px)`;
-
+    const freshBoard = boardElement.cloneNode(false);
+    
+    // Set up grid layout
+    freshBoard.style.gridTemplateColumns = `repeat(${cols}, ${TILE_SIZE}px)`;
+    
+    // Generate tiles
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
-            const tile = createTileElement(i, j);
-            boardElement.appendChild(tile);
+            freshBoard.appendChild(createTileElement(i, j));
         }
     }
-    attachTileListeners(boardElement);
+    
+    // Replace old board and attach new listeners
+    boardElement.parentNode.replaceChild(freshBoard, boardElement);
+    attachTileListeners(freshBoard);
 }
-
 // Create an individual tile element
 function createTileElement(row, col) {
     const tile = document.createElement('div');
