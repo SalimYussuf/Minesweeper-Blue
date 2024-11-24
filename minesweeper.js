@@ -19,6 +19,9 @@ let isFirstClick = true;
 let timerInterval = null;
 let timeElapsed = 0;
 let flagsPlaced = 0;
+let rows = 0; 
+let cols = 0;  
+let mines = 0;
 
 // Initialize the game with the given parameters
 function initGame(r, c, m) {
@@ -39,6 +42,7 @@ function resetGameState() {
     timeElapsed = 0;
     flagsPlaced = 0;
     clearInterval(timerInterval);
+    board = [];
 }
 
 // Reset UI elements (like timer, flags, etc.)
